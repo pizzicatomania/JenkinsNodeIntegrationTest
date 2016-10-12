@@ -6,7 +6,7 @@ var contentSchema = new mongoose.Schema({
 	deviceType: { type: String },
 	modelId: { type: String}
 	
-});
+})
 
 module.exports = new mongoose.Schema({
 	serial: { type: String, unique : true, index: true, required: true },
