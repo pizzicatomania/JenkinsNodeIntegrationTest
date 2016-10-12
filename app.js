@@ -1,4 +1,4 @@
-var mosca = require('mosca');
+var mosca = require('mosca')
 
 var settings = {
 	port: 1883,
@@ -6,7 +6,7 @@ var settings = {
 };
 
 var server = new mosca.Server(settings, function() {
-	console.log('Mosca server is up and running');
+	console.log('Mosca server is up and running')
 });
 
 server.published = function(packet, client, cb) {
@@ -15,12 +15,12 @@ server.published = function(packet, client, cb) {
 	}
 	
 	var newPacket = {
-		topic: 'echo/' + packet.topic,
-		payload: packet.payload,
-		retain: packet.retain,
-		qos: packet.qos
+			topic: 'echo/' + packet.topic,
+			payload: packet.payload,
+			retain: packet.retain,
+			qos: packet.qos
 	};
 	
 	console.log('newPacket', newPacket);
 	server.publish(newPacket, cb);
-};
+}
